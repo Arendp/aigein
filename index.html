@@ -558,5 +558,91 @@
             <button style="background: #e74c3c; color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 6px; cursor: pointer; font-weight: bold;">Doe de test</button>
         </aside>
     </main>
+    <!-- Burn-out Test Popup -->
+    <div id="burnout-popup" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.4);">
+      <div style="background:white; max-width:400px; margin:6vh auto; border-radius:12px; box-shadow:0 8px 32px rgba(0,0,0,0.2); padding:2rem; position:relative;">
+        <button id="burnout-close" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.5rem; color:#888; cursor:pointer;">&times;</button>
+        <div id="burnout-quiz">
+          <h2 style="color:#e74c3c; font-size:1.3rem; margin-bottom:1.2rem;">Burn-out test voor psychologen</h2>
+          <form id="burnout-form">
+            <div class="burnout-q" style="margin-bottom:1.2rem;">
+              <label>1. Hoe vaak heb je vandaag al naar de klok gekeken tijdens een sessie?</label><br>
+              <input type="radio" name="q1" value="1"> Eén keer (ik was gefocust)<br>
+              <input type="radio" name="q1" value="2"> 3-5 keer (normaal toch?)<br>
+              <input type="radio" name="q1" value="3"> Ik heb een klok-app open naast mijn EPD<br>
+              <input type="radio" name="q1" value="4"> Ik tel de seconden hardop
+            </div>
+            <div class="burnout-q" style="margin-bottom:1.2rem;">
+              <label>2. Wat is je eerste reactie als de koffiemachine stuk is?</label><br>
+              <input type="radio" name="q2" value="1"> "Ach, dan maar thee."
+              <br><input type="radio" name="q2" value="2"> "Dit is een ramp."
+              <br><input type="radio" name="q2" value="3"> "Ik bel de crisisdienst."
+              <br><input type="radio" name="q2" value="4"> "Ik overweeg ontslag."
+            </div>
+            <div class="burnout-q" style="margin-bottom:1.2rem;">
+              <label>3. Je cliënt vraagt: “Hoe gaat het met ú?” Wat doe je?</label><br>
+              <input type="radio" name="q3" value="1"> "Professioneel glimlachen."
+              <br><input type="radio" name="q3" value="2"> "Eerlijk antwoord geven (en huilen)."
+              <br><input type="radio" name="q3" value="3"> "Vraag terug: hoe voelt het om dat te vragen?"
+              <br><input type="radio" name="q3" value="4"> "Ik ren de kamer uit."
+            </div>
+            <div class="burnout-q" style="margin-bottom:1.2rem;">
+              <label>4. Je collega zegt: “We hebben een teamuitje!” Wat voel je?</label><br>
+              <input type="radio" name="q4" value="1"> "Gezellig!"
+              <br><input type="radio" name="q4" value="2"> "Kan ik me ziek melden?"
+              <br><input type="radio" name="q4" value="3"> "Alleen als er koffie is."
+              <br><input type="radio" name="q4" value="4"> "Ik voel een paniekaanval opkomen."
+            </div>
+            <div class="burnout-q" style="margin-bottom:1.2rem;">
+              <label>5. Je motivatiekaarten liggen nog steeds…?</label><br>
+              <input type="radio" name="q5" value="1"> "Opgehangen, natuurlijk!"
+              <br><input type="radio" name="q5" value="2"> "In een la, ergens."
+              <br><input type="radio" name="q5" value="3"> "Onder het koffiezetapparaat."
+              <br><input type="radio" name="q5" value="4"> "Wat zijn motivatiekaarten?"
+            </div>
+            <button type="submit" style="background:#e74c3c; color:white; border:none; padding:0.7rem 1.5rem; border-radius:6px; font-weight:bold; margin-top:0.5rem; cursor:pointer;">Bekijk je uitslag</button>
+          </form>
+        </div>
+        <div id="burnout-result" style="display:none;"></div>
+      </div>
+    </div>
+    <script>
+    // Popup openen
+    document.addEventListener('DOMContentLoaded', function() {
+      var popup = document.getElementById('burnout-popup');
+      var openBtn = Array.from(document.querySelectorAll('button')).find(btn => btn.textContent.trim().toLowerCase().includes('doe de test'));
+      if(openBtn) {
+        openBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          popup.style.display = 'block';
+        });
+      }
+      document.getElementById('burnout-close').onclick = function() {
+        popup.style.display = 'none';
+        document.getElementById('burnout-form').reset();
+        document.getElementById('burnout-quiz').style.display = '';
+        document.getElementById('burnout-result').style.display = 'none';
+      };
+      document.getElementById('burnout-form').onsubmit = function(e) {
+        e.preventDefault();
+        var score = 0;
+        for(var i=1;i<=5;i++) {
+          var val = document.querySelector('input[name="q'+i+'"]:checked');
+          if(val) score += parseInt(val.value);
+        }
+        var result = document.getElementById('burnout-result');
+        var quiz = document.getElementById('burnout-quiz');
+        quiz.style.display = 'none';
+        result.style.display = '';
+        if(score <= 7) {
+          result.innerHTML = '<h2>Uitslag: Je bent nog fris!</h2><p>Je hebt nog hoop, maar pas op voor behandelkamer 3 en de koffiemachine…</p><button onclick="document.getElementById(\'burnout-close\').click()" style="margin-top:1rem; background:#e74c3c; color:white; border:none; padding:0.5rem 1.2rem; border-radius:5px;">Sluit</button>';
+        } else if(score <= 13) {
+          result.innerHTML = '<h2>Uitslag: Licht opgebrand</h2><p>Je bent een echte psycholoog: cynisch, maar functioneel. Tijd voor koffie en een goed gesprek met Tamara.</p><button onclick="document.getElementById(\'burnout-close\').click()" style="margin-top:1rem; background:#e74c3c; color:white; border:none; padding:0.5rem 1.2rem; border-radius:5px;">Sluit</button>';
+        } else {
+          result.innerHTML = '<h2>Uitslag: Uitgeblust!</h2><p>Gefeliciteerd, je bent officieel een uitgebluste psycholoog! Tijd voor een sabbatical, of in elk geval een dubbele espresso.</p><button onclick="document.getElementById(\'burnout-close\').click()" style="margin-top:1rem; background:#e74c3c; color:white; border:none; padding:0.5rem 1.2rem; border-radius:5px;">Sluit</button>';
+        }
+      };
+    });
+    </script>
 </body>
 </html> 
