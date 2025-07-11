@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uitzichtloosheid in Giessenburg: De Uitgebluste Psycholoog als Nieuwe Norm? - Psychologie Magazine</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fafafa;
+        }
+
+        .header {
+            background-color: white;
+            color: #333;
+            padding: 0;
+            border-bottom: 1px solid #e0e0e0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            font-family: 'Georgia', serif;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 1rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #e74c3c;
+            border-bottom-color: #e74c3c;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .search-btn {
+            background: none;
+            border: none;
+            color: #333;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .login-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .login-btn:hover {
+            background: #c0392b;
+        }
+
+        .breadcrumb {
+            background: #f8f9fa;
+            padding: 0.8rem 0;
+            font-size: 0.85rem;
+            color: #6c757d;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .breadcrumb-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .breadcrumb a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+
+        .article {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .article-header {
+            margin-bottom: 3rem;
+        }
+
+        .article-category {
+            color: #e74c3c;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            background: #fff5f5;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+            font-family: 'Georgia', serif;
+        }
+
+        .article-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 2rem;
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .article-image {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            border-radius: 12px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .article-image-caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #333;
+        }
+
+        .article-content h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1a1a1a;
+            margin: 2.5rem 0 1rem 0;
+            font-family: 'Georgia', serif;
+        }
+
+        .article-content p {
+            margin-bottom: 1.8rem;
+        }
+
+        .article-content .lead {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #34495e;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .sidebar {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            height: fit-content;
+        }
+
+        .sidebar h3 {
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-family: 'Georgia', serif;
+            font-weight: bold;
+        }
+
+        .sidebar-article {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .sidebar-article:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar-article h4 {
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+            color: #1a1a1a;
+            font-weight: bold;
+        }
+
+        .sidebar-article p {
+            font-size: 0.95rem;
+            color: #7f8c8d;
+            line-height: 1.5;
+        }
+
+        .quote {
+            background: #f8f9fa;
+            border-left: 4px solid #e74c3c;
+            padding: 2rem;
+            margin: 3rem 0;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: #2c3e50;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-box {
+            background: #fff8e1;
+            border: 1px solid #ffc107;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 3rem 0;
+        }
+
+        .highlight-box h4 {
+            color: #f57c00;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .highlight-box ul {
+            margin-left: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .highlight-box li {
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .related-articles {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid #ecf0f1;
+        }
+
+        .related-articles h3 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            font-family: 'Georgia', serif;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .related-article {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+
+        .related-article:hover {
+            transform: translateY(-2px);
+        }
+
+        .related-article h4 {
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .related-article p {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .article-title {
+                font-size: 2.2rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .article {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo">
+                <img src="logo.png" alt="Psychologie Magazine Logo">
+                <span class="logo-text">Psychologie Magazine</span>
+            </a>
+            <nav class="nav">
+                <a href="#">Artikelen</a>
+                <a href="#">Tests</a>
+                <a href="#">Thema's</a>
+                <a href="#">Expertise</a>
+                <a href="#">Abonnement</a>
+                <a href="#">Over ons</a>
+            </nav>
+            <div class="header-actions">
+                <button class="search-btn">🔍</button>
+                <a href="#" class="login-btn">Inloggen</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="breadcrumb-content">
+            <a href="#">Home</a> > <a href="#">Artikelen</a> > <a href="#">Burn-out & Werkstress</a> > <span>Uitzichtloosheid in Giessenburg</span>
+        </div>
+    </div>
+
+    <main class="main-content">
+        <article class="article">
+            <header class="article-header">
+                <div class="article-category">Burn-out & Werkstress</div>
+                <h1 class="article-title">Uitzichtloosheid in Giessenburg: De Uitgebluste Psycholoog als Nieuwe Norm?</h1>
+                <p class="article-subtitle">Een onderzoek naar de mentale malaise in een polderdorp waar psychologen zelf therapie nodig lijken te hebben</p>
+                <div class="article-meta">
+                    <span>Door: Redactie Psychologie Magazine, veldteam Alblasserwaard</span>
+                    <span>15 december 2024</span>
+                    <span>Leestijd: 6 minuten</span>
+                </div>
+            </header>
+
+            <img src="foto1.jpeg" alt="Pittoresk dorp Giessenburg met mistige sfeer" class="article-image">
+            <p class="article-image-caption">Het pittoreske Giessenburg, bekend van koeien, kerktorens en een mistig gevoel van 'is dit het nou'</p>
+
+            <div class="article-content">
+                <p class="lead">
+                    "Op een gegeven moment staar je gewoon vijftig minuten lang naar een klok die maar niet vooruit wil. En dan heb ik het nog niet eens over de cliënten." — Anonieme psycholoog, Perspectief Giessenburg
+                </p>
+
+                <h2>Een epidemie in een polderdorp</h2>
+                <p>
+                    In het pittoreske Giessenburg, bekend van koeien, kerktorens en een mistig gevoel van 'is dit het nou', heeft zich een stille crisis voltrokken. Binnen de muren van zorginstelling Perspectief (ironische naam, gezien de situatie), treft men geen veerkrachtige behandelaren vol hoop en optimisme. Nee. Daar tref je vooral... vermoeide ogen. Lege blikken. En heel veel thermoskannen.
+                </p>
+
+                <h2>Burn-out als teamactiviteit</h2>
+                <p>
+                    Waar collega's elders yoga doen tijdens de lunchpauze, organiseert Perspectief op dinsdag het wekelijkse Klaagkwartier. Thema's variëren van "Waarom de koffiemachine alweer kapot is" tot "Deze cliënt wil praten over zijn gevoelens, wat nu?!"
+                </p>
+
+                <div class="quote">
+                    "We hebben geprobeerd om motivatiekaarten in de kantine op te hangen, maar niemand had de energie om ze op te hangen. Dus liggen ze nu op een stapel onder het koffiezetapparaat."
+                    <br><br>
+                    <strong>- Teamleider Perspectief Giessenburg</strong>
+                </div>
+
+                <h2>Wat ging er mis?</h2>
+                <p>
+                    Volgens een recent niet-bestaand onderzoek van de Universiteit van Papendrecht zijn er drie hoofdoorzaken:
+                </p>
+
+                <div class="highlight-box">
+                    <h4>De drie hoofdoorzaken van de crisis:</h4>
+                    <ul>
+                        <li>Chronisch daglichttekort in behandelkamer 3</li>
+                        <li>De jaarlijkse teamuitjes naar het Nationaal Museum van Teleurstellingen</li>
+                        <li>Cliënten met vragen over hun gevoelens, levensvragen en… zingeving. (Serieus mensen, hoe durven ze.)</li>
+                    </ul>
+                </div>
+
+                <div class="image-gallery">
+                    <div>
+                        <img src="foto2.jpeg" alt="Lege behandelkamer met weinig daglicht" class="gallery-image">
+                        <p class="article-image-caption">Behandelkamer 3: waar daglicht en hoop verdwijnen</p>
+                    </div>
+                    <div>
+                        <img src="foto1.jpeg" alt="Mistige omgeving die de sfeer van uitzichtloosheid weergeeft" class="gallery-image">
+                        <p class="article-image-caption">De mist van mentale malaise die over Giessenburg hangt</p>
+                    </div>
+                </div>
+
+                <h2>Uitzichtloosheid als Copingstrategie</h2>
+                <p>
+                    Waar men vroeger nog sprak van persoonlijke ontwikkeling, wordt nu gefluisterd over acceptatie van het lot. Een van de collega's schijnt zelfs "chronische zinloosheid" als specialisatie te hebben opgenomen in haar LinkedIn-profiel.
+                </p>
+
+                <div class="quote">
+                    "Ik dacht: als ik dan toch nergens meer zin in heb, kan ik daar net zo goed expert in worden."
+                    <br><br>
+                    <strong>- Anonieme collega, specialisatie: chronische zinloosheid</strong>
+                </div>
+
+                <h2>De enige hoop: Tamara</h2>
+                <p>
+                    Midden in deze mist van mentale malaise is er één lichtpuntje: Tamara van der Pauw. Volgens insiders is zij het enige teamlid dat nog wel eens lacht, al is het vaak cynisch. Ze houdt de boel draaiende, organiseert soms stiekem een potje Wie Heeft Het Ergst Vandaag en biedt collega's koffie aan die zó zwart is dat het hun ziel weerspiegelt.
+                </p>
+
+                <div class="quote">
+                    "Het is hier zo uitzichtloos, het wordt bijna weer grappig."
+                    <br><br>
+                    <strong>- Tamara van der Pauw, de laatste hoop van Perspectief</strong>
+                </div>
+
+                <p>
+                    We vroegen haar om commentaar, maar ze zei slechts: "Het is hier zo uitzichtloos, het wordt bijna weer grappig." En vervolgens liep ze door, mompelend: "Of misschien ben ik dat gewoon..."
+                </p>
+
+                <h2>Conclusie: Er is geen conclusie</h2>
+                <p>
+                    De situatie bij Perspectief Giessenburg is ernstig. Of hilarisch. Of allebei. Psychologen blijven daar niet per se werken, ze bestaan. In een soort parallel universum waar de DSM-5 is vervangen door een seizoensgebonden depressie en de enige therapievorm nog bestaat uit samen in stilte naar de regen kijken.
+                </p>
+            </div>
+
+            <div class="related-articles">
+                <h3>Gerelateerde artikelen</h3>
+                <div class="related-grid">
+                    <div class="related-article">
+                        <h4>Waarom huilen in de voorraadkast geen teken van zwakte is</h4>
+                        <p>Volgende maand in Psychologie Magazine: teamrituelen in de zorg.</p>
+                    </div>
+                    <div class="related-article">
+                        <h4>Burn-out bij hulpverleners: een stille epidemie</h4>
+                        <p>Hoe de zorg voor anderen ten koste gaat van de zorg voor jezelf.</p>
+                    </div>
+                    <div class="related-article">
+                        <h4>De psychologie van cynisme op de werkvloer</h4>
+                        <p>Wanneer humor een overlevingsstrategie wordt in stressvolle werkomgevingen.</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <aside class="sidebar">
+            <h3>Populaire artikelen</h3>
+            
+            <div class="sidebar-article">
+                <h4>Hoe herken je een burn-out?</h4>
+                <p>De eerste signalen en wat je kunt doen om het te voorkomen.</p>
+            </div>
+
+            <div class="sidebar-article">
+                <h4>De psychologie van werkstress</h4>
+                <p>Wanneer je baan je geestelijke gezondheid beïnvloedt.</p>
+            </div>
+
+            <div class="sidebar-article">
+                <h4>Omgaan met collega's die altijd klagen</h4>
+                <p>Praktische tips voor het behouden van je eigen energie.</p>
+            </div>
+
+            <div class="sidebar-article">
+                <h4>De kracht van cynisme als overlevingsstrategie</h4>
+                <p>Hoe humor je kan helpen in stressvolle werkomgevingen.</p>
+            </div>
+
+            <div class="sidebar-article">
+                <h4>Werkplek depressie: een groeiend probleem</h4>
+                <p>De wetenschap achter depressie op de werkvloer.</p>
+            </div>
+
+            <h3 style="margin-top: 3rem;">Burn-out test</h3>
+            <p style="color: #7f8c8d; margin-bottom: 1rem;">Test of jij risico loopt op een burn-out.</p>
+            <button style="background: #e74c3c; color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 6px; cursor: pointer; font-weight: bold;">Doe de test</button>
+        </aside>
+    </main>
+</body>
+</html> 
